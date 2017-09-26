@@ -19,7 +19,7 @@ amd$date <- as.Date(amd$date)
 
 ## What is mean total number of steps taken per day?
 ```{r}
-StepsPerDay <- tapply(amd$steps, amd$date, sum,na.rm = T)
+StepsPerDay <- tapply(amd$steps, amd$date, sum, na.rm = T)
 MeanSteps <- mean(StepsPerDay)
 MedSteps <- median(StepsPerDay)
 
@@ -34,7 +34,7 @@ The mean and median of the total number of steps per day are:
 
 ## What is the average daily activity pattern?
 ```{r}
-MeanStepInterval <- tapply(amd$steps, amd$interval ,mean,na.rm = T)
+MeanStepInterval <- tapply(amd$steps, amd$interval , mean, na.rm = T)
 MaxInterval <- MeanStepInterval[MeanStepInterval == max(MeanStepInterval)]
 MaxIntName <- names(MaxInterval)
 
@@ -68,6 +68,8 @@ hist(ImStepsPerDay, col = "purple",
      xlab = "Steps per day")
 
 ```
+
+The total number of NAs are: `r TotNAs`. 
 
 The mean and median of the total number of steps per day when NA values
 have been removed are: `r format(ImMeanSteps, scientific=F)` and 
